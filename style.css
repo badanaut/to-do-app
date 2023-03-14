@@ -1,7 +1,9 @@
-body{
+html, body{
     margin: 0;
-    color: #281C37;
     background-color: #e4ecd7;
+}
+*{
+    color: #281C37;
 }
 header{
     display: flex;
@@ -14,7 +16,7 @@ header{
 
 .main-content{
     display: grid;
-    grid-template-columns: 1fr 4fr;    
+    grid-template-columns: 1fr 4fr; 
 }
 
 .task-categories{
@@ -26,12 +28,11 @@ header{
     padding: 2vh;
     font-weight: bold;    
 }
-.task-categories>div{
+.task-categories>h3{
     padding-left: 2vw;
 }
 
 button{
-    color: #281C37;
     font-weight: bold;
     background:none;
     border: none;
@@ -46,4 +47,32 @@ button:active{
 
 .task-overview{
     grid-column: 2 /3;
+}
+/* footer styles   */
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #0000006c;
+
+}
+footer>p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1vw;
+}
+a{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+svg{
+    width: 1.5rem;
+    height: auto;
+}
+svg:hover{
+    transform: rotate(360deg);
+    transition: transform 0.5s ease-in;
 }
