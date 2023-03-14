@@ -1,6 +1,7 @@
 body{
     margin: 0;
     color: #281C37;
+    background-color: #e4ecd7;
 }
 header{
     display: flex;
@@ -8,5 +9,41 @@ header{
     align-items: center;
     gap: 1%;
     padding-left: 3%;
-    background-color: #E4ECD7;
+    background-color: #e1bf7b;
+}
+
+.main-content{
+    display: grid;
+    grid-template-columns: 1fr 4fr;    
+}
+
+.task-categories{
+    grid-column: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    gap: 2vh;
+    padding: 2vh;
+    font-weight: bold;    
+}
+.task-categories>div{
+    padding-left: 2vw;
+}
+
+button{
+    color: #281C37;
+    font-weight: bold;
+    background:none;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    cursor: pointer;
+}
+button:active{
+    translate: 1px;
+}
+
+.task-overview{
+    grid-column: 2 /3;
 }
