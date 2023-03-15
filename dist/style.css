@@ -1,10 +1,15 @@
-html, body{
-    margin: 0;
-    background-color: #e4ecd7;
-}
 *{
     color: #281C37;
 }
+
+body{
+    margin: 0;
+    background-color: #e4ecd7;
+    display: grid;
+    grid-template-rows: 7vh auto 5vh;
+    height: 100vh;
+}
+
 header{
     display: flex;
     justify-content: flex-start;
@@ -50,11 +55,8 @@ button:active{
 }
 /* footer styles   */
 footer{
-    position: absolute;
-    bottom: 0;
     width: 100%;
     background-color: #0000006c;
-
 }
 footer>p{
     display: flex;
