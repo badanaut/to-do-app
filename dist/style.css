@@ -79,3 +79,42 @@ svg:hover{
     transform: rotate(360deg);
     transition: transform 0.5s ease-in;
 }
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+  }
+  
+
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #0C4767;
+    color: white;
+    text-decoration: solid;
+    font-size: x-large;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 15%;
+  }
+
+  #modal-btn{
+    margin-top: 20px;
+    padding: 10px;
+    background-color:#0C7488;
+    border-style: none;
+    border-radius: 10px;
+    cursor:grab;
+    color: white;
+    font-size: x-large;
+  }

@@ -1,4 +1,5 @@
 import createTodoItem from './createTodoItem';
+import initAddToDoModal from './addToDoUI';
 
 export default class userInterface {
   static loadHomePage() {
@@ -6,6 +7,7 @@ export default class userInterface {
     taskContainer.innerHTML = `<div id="task-category">Inbox</div>
     <button id="add-to-do">Add ToDo</button>
     <div id="to-do-container"></div>`;
+    initAddToDoModal();
   }
 
   static addTodoItem(itemName, description, priority) {
