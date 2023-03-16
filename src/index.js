@@ -1,3 +1,3 @@
 import userInterface from './js_modules/userInterface';
 
-document.addEventListener('DOMContentLoaded', userInterface.loadHomepage);
+document.addEventListener('DOMContentLoaded', userInterface.loadHomePage);
