@@ -20,16 +20,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _js_
 
 /***/ }),
 
-/***/ "./src/js_modules/addToDoUI.js":
-/*!*************************************!*\
-  !*** ./src/js_modules/addToDoUI.js ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ initAddToDoModal)\n/* harmony export */ });\nfunction initAddToDoModal() {\n  // Get the modal\n  const modal = document.getElementById('myModal');\n  const modalButton = document.getElementById('modal-btn');\n  const addProjectButton = document.getElementById('add-to-do');\n\n  function displayModal() {\n    modal.style.display = 'flex';\n    // eslint-disable-next-line no-undef\n    modal.style.flex = center;\n  }\n\n  addProjectButton.onclick = () => displayModal();\n\n  // When the user clicks anywhere outside of the modal, close it\n  window.onclick = (event) => {\n    if (event.target === modal) {\n      modal.style.display = 'none';\n    }\n  };\n  // When the user clicks on button, close the modal\n  modalButton.onclick = () => {\n    modal.style.display = 'none';\n  };\n}\n\n\n//# sourceURL=webpack://to-do-app/./src/js_modules/addToDoUI.js?");
-
-/***/ }),
-
 /***/ "./src/js_modules/createTodoItem.js":
 /*!******************************************!*\
   !*** ./src/js_modules/createTodoItem.js ***!
@@ -46,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ userInterface)\n/* harmony export */ });\n/* harmony import */ var _createTodoItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createTodoItem */ \"./src/js_modules/createTodoItem.js\");\n/* harmony import */ var _addToDoUI__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./addToDoUI */ \"./src/js_modules/addToDoUI.js\");\n\n\n\nclass userInterface {\n  static loadHomePage() {\n    const taskContainer = document.getElementById('task-overview');\n    taskContainer.innerHTML = `<div id=\"task-category\">Inbox</div>\n    <button id=\"add-to-do\">Add ToDo</button>\n    <div id=\"to-do-container\"></div>`;\n    (0,_addToDoUI__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n  }\n\n  static addTodoItem(itemName, description, priority) {\n    const todoList = []; // to add code that get to do items from html page\n    const newTodoItem = (0,_createTodoItem__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(itemName, description, priority);\n    todoList.push(newTodoItem);\n  }\n}\n\n\n//# sourceURL=webpack://to-do-app/./src/js_modules/userInterface.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ userInterface)\n/* harmony export */ });\n/* harmony import */ var _createTodoItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createTodoItem */ \"./src/js_modules/createTodoItem.js\");\n\n\nclass userInterface {\n  static loadHomePage() {\n    const taskContainer = document.getElementById(\"task-overview\");\n    taskContainer.innerHTML = `<div id=\"task-category\">Inbox</div>\n              <div id=\"to-do-container\"></div>`;\n  }\n\n  static addTodoItem(itemName, description, priority) {\n    const todoList = []; // to add code that get to do items from html page\n    const newTodoItem = (0,_createTodoItem__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(itemName, description, priority);\n    todoList.push(newTodoItem);\n  }\n}\n\n\n//# sourceURL=webpack://to-do-app/./src/js_modules/userInterface.js?");
 
 /***/ })
 
