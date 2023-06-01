@@ -16,7 +16,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _js_modules_userInterface__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./js_modules/userInterface */ \"./src/js_modules/userInterface.js\");\n\n\ndocument.addEventListener('DOMContentLoaded', _js_modules_userInterface__WEBPACK_IMPORTED_MODULE_0__[\"default\"].loadHomePage);\n\n\n//# sourceURL=webpack://to-do-app/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _js_modules_userInterface__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./js_modules/userInterface */ \"./src/js_modules/userInterface.js\");\n\n\ndocument.addEventListener(\"DOMContentLoaded\", (0,_js_modules_userInterface__WEBPACK_IMPORTED_MODULE_0__[\"default\"])().loadHomePage);\n\n\n//# sourceURL=webpack://to-do-app/./src/index.js?");
 
 /***/ }),
 
@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _js_
   \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst userInterface = {\n  loadHomePage: () => console.log(\"hello!\"),\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (userInterface);\n\n\n//# sourceURL=webpack://to-do-app/./src/js_modules/userInterface.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst displayToDo = document.querySelector(\"#task-overview\");\n\nconst userInterface = () => {\n  const toDoList = [\n    {\n      title: \"1st To do\",\n      dueDate: \"2023-06-01\",\n      priority: \"high\",\n      checklist: false,\n    },\n    {\n      title: \"2nd To do\",\n      dueDate: \"2023-06-02\",\n      priority: \"medium\",\n      checklist: true,\n    },\n    {\n      title: \"3rd To do\",\n      dueDate: \"2023-06-03\",\n      priority: \"low\",\n      checklist: false,\n    },\n  ];\n\n  const loadHomePage = () => {\n    toDoList.forEach((item) => {\n      const tr = document.createElement(\"tr\");\n      tr.innerHTML = `\n        <td>${item.title}</td>\n        <td>${item.dueDate}</td>\n        <td>\n          <input type=\"checkbox\" ${item.checklist ? \"checked\" : \"\"} />\n        </td>\n        <td>\n          <select>\n            <option value=\"high\" ${\n              item.priority === \"high\" ? \"selected\" : \"\"\n            }>High</option>\n            <option value=\"medium\" ${\n              item.priority === \"medium\" ? \"selected\" : \"\"\n            }>Medium</option>\n            <option value=\"low\" ${\n              item.priority === \"low\" ? \"selected\" : \"\"\n            }>Low</option>\n          </select>\n        </td>\n      `;\n      displayToDo.append(tr);\n    });\n  };\n\n  return {\n    loadHomePage,\n  };\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (userInterface);\n\n\n//# sourceURL=webpack://to-do-app/./src/js_modules/userInterface.js?");
 
 /***/ })
 
