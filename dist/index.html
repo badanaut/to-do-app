@@ -28,12 +28,12 @@
       <div>
         <form>
           <input type="text" id="new-todo-title" placeholder="Title" />
-          <input
-            type="text"
-            id="new-todo-description"
-            placeholder="Descriprion"
-          />
-          <input type="text" id="new-todo-priority" placeholder="Priority" />
+          <input type="date" id="new-todo-date" />
+          <select>
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
           <button type="submit" id="add-to-do">Add ToDo</button>
         </form>
         <table id="task-overview">
