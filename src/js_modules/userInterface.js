@@ -1,22 +1,23 @@
+import { compareAsc, format } from "date-fns";
 const displayToDo = document.querySelector("#task-overview");
 
 const userInterface = () => {
   const toDoList = [
     {
-      title: "1st To do",
-      dueDate: "2023-06-01",
+      title: "Learn React",
+      dueDate: new Date(2023, 7, 1),
       priority: "high",
       checklist: false,
     },
     {
-      title: "2nd To do",
-      dueDate: "2023-06-02",
+      title: "Learn Node.js",
+      dueDate: new Date(2023, 8, 1),
       priority: "medium",
       checklist: true,
     },
     {
-      title: "3rd To do",
-      dueDate: "2023-06-03",
+      title: "Find a Web Developer Job",
+      dueDate: new Date(2023, 9, 1),
       priority: "low",
       checklist: false,
     },
@@ -27,7 +28,7 @@ const userInterface = () => {
       const tr = document.createElement("tr");
       tr.innerHTML = `
         <td>${item.title}</td>
-        <td>${item.dueDate}</td>
+        <td>${item.dueDate.toISOString().split("T")[0]}</td>
         <td>
           <input type="checkbox" ${item.checklist ? "checked" : ""} />
         </td>
