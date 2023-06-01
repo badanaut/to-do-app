@@ -81,12 +81,18 @@ form {
   margin: 3%;
 }
 
-form > *{
-    font-size: large;
+form > * {
+  font-size: large;
 }
 
 #add-to-do {
   background-color: #281c37;
   color: white;
   border-radius: 3px;
+}
+
+table {
+  width: 80%;
+  border-collapse: collapse;
+  text-align: center;
 }
