@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/badanaut/to-do-app#readme",
   "devDependencies": {
-    "webpack": "^5.76.1",
-    "webpack-cli": "^5.0.1"
+    "webpack": "^5.84.1",
+    "webpack-cli": "^5.1.1"
   }
 }
