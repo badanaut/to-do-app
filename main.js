@@ -20,23 +20,13 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _js_
 
 /***/ }),
 
-/***/ "./src/js_modules/createTodoItem.js":
-/*!******************************************!*\
-  !*** ./src/js_modules/createTodoItem.js ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ createTodoItem)\n/* harmony export */ });\nfunction createTodoItem(itemName, description, priority) {\n  let status = 'Incomplete';\n\n  return {\n    getItemName() {\n      return itemName;\n    },\n    getDescription() {\n      return description;\n    },\n    getPriority() {\n      return priority;\n    },\n    getStatus() {\n      return status;\n    },\n    setStatus(newStatus) {\n      status = newStatus;\n    },\n  };\n}\n\n\n//# sourceURL=webpack://to-do-app/./src/js_modules/createTodoItem.js?");
-
-/***/ }),
-
 /***/ "./src/js_modules/userInterface.js":
 /*!*****************************************!*\
   !*** ./src/js_modules/userInterface.js ***!
   \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ userInterface)\n/* harmony export */ });\n/* harmony import */ var _createTodoItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createTodoItem */ \"./src/js_modules/createTodoItem.js\");\n\n\nclass userInterface {\n  static loadHomePage() {\n    const taskContainer = document.getElementById(\"task-overview\");\n    taskContainer.innerHTML = `<div id=\"task-category\">Inbox</div>\n              <div id=\"to-do-container\"></div>`;\n  }\n\n  static addTodoItem(itemName, description, priority) {\n    const todoList = []; // to add code that get to do items from html page\n    const newTodoItem = (0,_createTodoItem__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(itemName, description, priority);\n    todoList.push(newTodoItem);\n  }\n}\n\n\n//# sourceURL=webpack://to-do-app/./src/js_modules/userInterface.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst userInterface = {\n  loadHomePage: () => console.log(\"hello!\"),\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (userInterface);\n\n\n//# sourceURL=webpack://to-do-app/./src/js_modules/userInterface.js?");
 
 /***/ })
 
