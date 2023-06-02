@@ -26,10 +26,10 @@
         </button>
       </div>
       <div>
-        <form>
-          <input type="text" id="new-todo-title" placeholder="Title" />
-          <input type="date" id="new-todo-date" />
-          <select>
+        <form id="add-todo-form">
+          <input type="text" id="new-todo-title" placeholder="Title" required/>
+          <input type="date" id="new-todo-date" required/>
+          <select id="new-todo-priority">
             <option value="high">High</option>
             <option value="medium">Medium</option>
             <option value="low">Low</option>
@@ -39,8 +39,8 @@
         <table id="task-overview">
           <th>Title</th>
           <th>Due Date</th>
-          <th>Priority</th>
           <th>Status</th>
+          <th>Priority</th>
         </table>
       </div>
     </div>
