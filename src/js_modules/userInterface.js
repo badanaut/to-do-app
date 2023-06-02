@@ -1,4 +1,4 @@
-import displayToDoItem from "./displayToDoItem";
+import displayToDoItem from "./displayToDoItem.js";
 import createTodoItem from "./createTodoItem";
 const displayToDo = document.querySelector("#task-overview");
 const addToDoForm = document.querySelector("#add-todo-form");
@@ -57,8 +57,9 @@ addToDoForm.addEventListener("submit", (event) => {
   localStorage.setItem("toDoList", JSON.stringify(toDoList));
   title.value = "";
   dueDate.value = "";
-  priority.value = "high";
+  priority.value = "low";
   userInterface().displayToDos();
 });
 
 export default userInterface;
+export { toDoList };
