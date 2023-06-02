@@ -1,58 +1,63 @@
 import { compareAsc, format } from "date-fns";
+import displayToDoItem from "./displayToDoItem";
+import createTodoItem from "./createTodoItem";
 const displayToDo = document.querySelector("#task-overview");
+const addToDoForm = document.querySelector("#add-todo-form");
+const title = document.getElementById("new-todo-title");
+const dueDate = document.getElementById("new-todo-date");
+const priority = document.getElementById("new-todo-priority");
+const toDoList = [
+  {
+    title: "Learn React",
+    dueDate: new Date(2023, 7, 1),
+    priority: "high",
+    checklist: false,
+  },
+  {
+    title: "Learn Node.js",
+    dueDate: new Date(2023, 8, 1),
+    priority: "medium",
+    checklist: true,
+  },
+  {
+    title: "Find a Web Developer Job",
+    dueDate: new Date(2023, 9, 1),
+    priority: "low",
+    checklist: false,
+  },
+];
 
 const userInterface = () => {
-  const toDoList = [
-    {
-      title: "Learn React",
-      dueDate: new Date(2023, 7, 1),
-      priority: "high",
-      checklist: false,
-    },
-    {
-      title: "Learn Node.js",
-      dueDate: new Date(2023, 8, 1),
-      priority: "medium",
-      checklist: true,
-    },
-    {
-      title: "Find a Web Developer Job",
-      dueDate: new Date(2023, 9, 1),
-      priority: "low",
-      checklist: false,
-    },
-  ];
-
-  const loadHomePage = () => {
+  const displayToDos = () => {
     toDoList.forEach((item) => {
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td>${item.title}</td>
-        <td>${item.dueDate.toISOString().split("T")[0]}</td>
-        <td>
-          <input type="checkbox" ${item.checklist ? "checked" : ""} />
-        </td>
-        <td>
-          <select>
-            <option value="high" ${
-              item.priority === "high" ? "selected" : ""
-            }>High</option>
-            <option value="medium" ${
-              item.priority === "medium" ? "selected" : ""
-            }>Medium</option>
-            <option value="low" ${
-              item.priority === "low" ? "selected" : ""
-            }>Low</option>
-          </select>
-        </td>
-      `;
-      displayToDo.append(tr);
+      displayToDoItem(item);
     });
   };
 
   return {
-    loadHomePage,
+    displayToDos,
   };
 };
+
+addToDoForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const newToDoItem = createTodoItem(
+    title.value,
+    new Date(dueDate.value),
+    priority.value,
+    false
+  );
+  toDoList.push(newToDoItem);
+  displayToDo.innerHTML = `
+        <th>Title</th>
+        <th>Due Date</th>
+        <th>Status</th>
+        <th>Priority</th>`;
+  title.value = "";
+  dueDate.value = "";
+  priority.value = "high";
+  userInterface().displayToDos();
+});
 
 export default userInterface;
