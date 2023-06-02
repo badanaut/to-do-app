@@ -1,4 +1,3 @@
-import { compareAsc, format } from "date-fns";
 import displayToDoItem from "./displayToDoItem";
 import createTodoItem from "./createTodoItem";
 const displayToDo = document.querySelector("#task-overview");
@@ -6,7 +5,7 @@ const addToDoForm = document.querySelector("#add-todo-form");
 const title = document.getElementById("new-todo-title");
 const dueDate = document.getElementById("new-todo-date");
 const priority = document.getElementById("new-todo-priority");
-const toDoList = [
+let toDoList = JSON.parse(localStorage.getItem("toDoList")) || [
   {
     title: "Learn React",
     dueDate: new Date(2023, 7, 1),
@@ -29,6 +28,12 @@ const toDoList = [
 
 const userInterface = () => {
   const displayToDos = () => {
+    displayToDo.innerHTML = `
+        <th>Title</th>
+        <th>Due Date</th>
+        <th>Status</th>
+        <th>Priority</th>`;
+
     toDoList.forEach((item) => {
       displayToDoItem(item);
     });
@@ -49,11 +54,7 @@ addToDoForm.addEventListener("submit", (event) => {
     false
   );
   toDoList.push(newToDoItem);
-  displayToDo.innerHTML = `
-        <th>Title</th>
-        <th>Due Date</th>
-        <th>Status</th>
-        <th>Priority</th>`;
+  localStorage.setItem("toDoList", JSON.stringify(toDoList));
   title.value = "";
   dueDate.value = "";
   priority.value = "high";

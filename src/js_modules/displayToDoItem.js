@@ -1,10 +1,11 @@
 const displayToDo = document.querySelector("#task-overview");
+import { format } from "date-fns";
 
 const displayToDoItem = (item) => {
   const tr = document.createElement("tr");
   tr.innerHTML = `
         <td>${item.title}</td>
-        <td>${item.dueDate.toISOString().split("T")[0]}</td>
+        <td>${format(new Date(item.dueDate), "yyyy-MM-dd")}</td>
         <td>
           <input type="checkbox" ${item.checklist ? "checked" : ""} />
         </td>
