@@ -120,3 +120,8 @@ td {
 #add-to-do {
   padding: 10px;
 }
+
+.selected-filter {
+  background-color: #e1bf7b ;
+  width: 80%;
+}
