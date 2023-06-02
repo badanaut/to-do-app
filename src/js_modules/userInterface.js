@@ -5,6 +5,8 @@ const addToDoForm = document.querySelector("#add-todo-form");
 const title = document.getElementById("new-todo-title");
 const dueDate = document.getElementById("new-todo-date");
 const priority = document.getElementById("new-todo-priority");
+const toDoListFilter = "all"
+
 let toDoList = JSON.parse(localStorage.getItem("toDoList")) || [
   {
     title: "Learn React",
