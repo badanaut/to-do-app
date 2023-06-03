@@ -1,6 +1,9 @@
 import displayToDoItem from "./displayToDoItem.js";
 import createTodoItem from "./createTodoItem";
-var isThisWeek = require("date-fns/isThisWeek");
+import isThisISOWeek from "date-fns/isThisISOWeek";
+import isThisMonth from "date-fns/isThisMonth";
+//import isThisYear from "date-fns/isThisYear";
+import { parseISO } from "date-fns";
 const displayToDo = document.querySelector("#task-overview");
 const addToDoForm = document.querySelector("#add-todo-form");
 const title = document.getElementById("new-todo-title");
@@ -66,21 +69,52 @@ addToDoForm.addEventListener("submit", (event) => {
   userInterface().displayToDos();
 });
 
-week.addEventListener("click", (event) => {
-  inbox.classList.remove("selected-filter");
-  week.classList.add("selected-filter");
-  month.classList.remove("selected-filter");
-  const diplayedToDo = toDoList.filter((todo) => isThisWeek(todo.dueDate));
-});
-month.addEventListener("click", (event) => {
-  inbox.classList.remove("selected-filter");
-  week.classList.remove("selected-filter");
-  month.classList.add("selected-filter");
-});
-inbox.addEventListener("click", (event) => {
+inbox.addEventListener("click", () => {
   inbox.classList.add("selected-filter");
   week.classList.remove("selected-filter");
   month.classList.remove("selected-filter");
+  displayToDo.innerHTML = `
+        <th>Title</th>
+        <th>Due Date</th>
+        <th>Status</th>
+        <th>Priority</th>`;
+  toDoList.forEach((item, index) => {
+    displayToDoItem(item, index);
+  });
+});
+
+week.addEventListener("click", () => {
+  inbox.classList.remove("selected-filter");
+  week.classList.add("selected-filter");
+  month.classList.remove("selected-filter");
+  const diplayedToDo = toDoList.filter((todo) =>
+    isThisISOWeek(parseISO(todo.dueDate))
+  );
+  displayToDo.innerHTML = `
+        <th>Title</th>
+        <th>Due Date</th>
+        <th>Status</th>
+        <th>Priority</th>`;
+  diplayedToDo.forEach((item, index) => {
+    displayToDoItem(item, index);
+  });
+});
+
+month.addEventListener("click", () => {
+  inbox.classList.remove("selected-filter");
+  week.classList.remove("selected-filter");
+  month.classList.add("selected-filter");
+  const diplayedToDo = toDoList.filter((todo) =>
+    isThisMonth(parseISO(todo.dueDate))
+  );
+  displayToDo.innerHTML = `
+        <th>Title</th>
+        <th>Due Date</th>
+        <th>Status</th>
+        <th>Priority</th>`;
+  diplayedToDo.forEach((item, index) => {
+    displayToDoItem(item, index);
+  });
 });
 
 export default userInterface;
