@@ -116,12 +116,24 @@ td {
   padding: 5px;
   border: 1px solid #281c37;
 }
+td:last-child {
+  border: none;
+  align-content: center;
+}
+
+button.delete-btn {
+  background-color: tomato;
+  color: white;
+  font-size: medium;
+  padding: 3px;
+  border-radius: 3px;
+}
 
 #add-to-do {
   padding: 10px;
 }
 
 .selected-filter {
-  background-color: #e1bf7b ;
+  background-color: #e1bf7b;
   width: 80%;
 }
