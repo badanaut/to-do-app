@@ -1,11 +1,14 @@
 import displayToDoItem from "./displayToDoItem.js";
 import createTodoItem from "./createTodoItem";
+var isThisWeek = require("date-fns/isThisWeek");
 const displayToDo = document.querySelector("#task-overview");
 const addToDoForm = document.querySelector("#add-todo-form");
 const title = document.getElementById("new-todo-title");
 const dueDate = document.getElementById("new-todo-date");
 const priority = document.getElementById("new-todo-priority");
-const toDoListFilter = "all"
+const inbox = document.getElementById("inbox");
+const week = document.getElementById("week");
+const month = document.getElementById("month");
 
 let toDoList = JSON.parse(localStorage.getItem("toDoList")) || [
   {
@@ -36,8 +39,8 @@ const userInterface = () => {
         <th>Status</th>
         <th>Priority</th>`;
 
-    toDoList.forEach((item) => {
-      displayToDoItem(item);
+    toDoList.forEach((item, index) => {
+      displayToDoItem(item, index);
     });
   };
 
@@ -61,6 +64,23 @@ addToDoForm.addEventListener("submit", (event) => {
   dueDate.value = "";
   priority.value = "low";
   userInterface().displayToDos();
+});
+
+week.addEventListener("click", (event) => {
+  inbox.classList.remove("selected-filter");
+  week.classList.add("selected-filter");
+  month.classList.remove("selected-filter");
+  const diplayedToDo = toDoList.filter((todo) => isThisWeek(todo.dueDate));
+});
+month.addEventListener("click", (event) => {
+  inbox.classList.remove("selected-filter");
+  week.classList.remove("selected-filter");
+  month.classList.add("selected-filter");
+});
+inbox.addEventListener("click", (event) => {
+  inbox.classList.add("selected-filter");
+  week.classList.remove("selected-filter");
+  month.classList.remove("selected-filter");
 });
 
 export default userInterface;

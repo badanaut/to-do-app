@@ -23,6 +23,7 @@ const displayToDoItem = (item, index) => {
             }>Low</option>
           </select>
         </td>
+        <td><button type="button" class="delete-btn">Delete</button></td>
       `;
   displayToDo.append(tr);
 
@@ -36,6 +37,19 @@ const displayToDoItem = (item, index) => {
   itemPriority.addEventListener("change", () => {
     item.priority = itemPriority.value;
     localStorage.setItem("toDoList", JSON.stringify(toDoList));
+  });
+
+  const deleteBtn = tr.querySelector('button[type="button"]');
+  deleteBtn.addEventListener("click", () => {
+    toDoList.splice(index, 1);
+    localStorage.setItem("toDoList", JSON.stringify(toDoList));
+    displayToDo.innerHTML = `<th>Title</th>
+        <th>Due Date</th>
+        <th>Status</th>
+        <th>Priority</th>`;
+    toDoList.forEach((item, index) => {
+      displayToDoItem(item, index);
+    });
   });
 };
 
